@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> <%= docTitle %> </title>
+
+    <link rel="stylesheet" href="/css/main.css">
+
+</head>
+
+<body>
+    <nav class="main-header__nav">
+        <ul class="main-header__item-list">
+            <li class="main-header__item">
+                <a href="/">Inicio</a>
+            </li>
+            <li class="main-header__item">
+                <a href="/vercursosinteresado">cursosInteresado</a>
+            </li>
+            <li class="main-header__item">
+                <a href="/crearcurso">crearCursos</a>
+            </li>
+            <li class="main-header__item">
+                <a href="/vercursoscoordinador">cursosCoordinador</a>
+            </li>
+            <li class="main-header__item">
+                <a href="/inscribiraspirante">InscribirAspirante</a>
+            </li>
+            <li class="main-header__item">
+                <a href="/listarinscriptoscoordinador">listarInscriptos</a>
+            </li>
+        </ul>
+    </nav>
+    </header>
+
+    <main>
+
+        <h1>Esta es una lista de cursos para todos los interesados</h1>
+
+
+        {{!-- You can use the if helper to conditionally render a
+         block. If its argument returns false, undefined, null, "", 0, or [],
+        Handlebars will not render the block. --}}
+        {{!-- 
+        {{#if estudiantes}}
+        {{#each estudiantes}}
+        <h1>Hay estudiantes</h1>
+        {{!-- <ul>
+            <li>
+                {{#ifCond cursos.id estudiantes.cursos}}
+                {{v1}} estudiantes.nombre {{v2}}
+                {{/ifCond}}
+
+            </li>
+        </ul> 
+
+        <div class="container">
+            <h1> {{ this  }} </h1>
+
+
+        </div>
+
+
+        {{/each}}
+        {{else}}
+        <p>No hay Estudiantes matriculados.</p>
+        {{/if}} --}}
+
+        {{!-- {{#if estudiantes}}
+        {{#each estudiantes}}
+        {{#each this.cursos}}
+        {{this}}
+        {{/each}}
+        {{/each}}
+
+        {{else}}
+        <p>No hay Estudiantes matriculados.</p>
+        {{/if}} --}}
+
+
+        {{#if cursos}}
+        {{#each cursos}}
+        <div class="container">
+            <h1> {{ this.nombre  }} </h1>
+            <h2 class=" product_description"> {{ this.descripcion  }} </h2>
+            <p class=" price"> $ {{ this.precio }}</p>
+            <p>Estado del curso: {{this.estado}} </p>
+            <h3>Estudiantes matriculados en el curso:</h3>
+
+            {{estxcurso this.id}}
+
+
+
+        </div>
+        <br>
+        {{/each}}
+        {{else}}
+        <h1>No hay disponible ningun curso.</h1>
+        {{/if}}
+
+    </main>
+
+    <footer>
+        Made with ♥ by Eider.
+    </footer>
+</body>
+
+</html>

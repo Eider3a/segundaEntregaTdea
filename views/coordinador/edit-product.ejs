@@ -1,0 +1,27 @@
+<%- include('../includes/head.ejs') %>
+
+<body>
+    <%- include('../includes/navigation.ejs') %>
+
+    <!-- This is the form where you can add and edit a product-->
+    
+    <main>
+        <form classs="form-control" action="/admin/<% if(editing) { %>edit-product <% } else { %>add-product <% }%>" method="post">
+            Product:<input type="text" name="title" id="title" value="<% if(editing){%><%= product.title%><%}%>" required><br>
+            Image Url:<input type="text" name="imageUrl" id="timageUrl" value="<% if(editing){%><%= product.imageUrl%><%}%>" ><br>
+            Price:<input type="text" name="price" id="price" value="<% if(editing){%><%= product.price%><%}%>" required><br>
+            Description:<input type="text" name="description" id="description" value="<% if(editing){%><%= product.description%><%}%>"  required><br>
+            
+            <% if(editing){ %>
+                <input type="hidden" name="productId" value="<%= product.id%>">
+            <% } %>
+
+            <input type="submit" value=" <% if(editing){ %> Update Product <% } else { %>Add Product <% } %>">
+        </form>
+    </main>
+
+<%- include('../includes/end.ejs') %>
+
+
+
+

@@ -1,0 +1,36 @@
+<%- include('../includes/head.ejs') %>
+
+<body>
+    <%- include('../includes/navigation.ejs') %>
+
+    <!-- This is the unique view where we can edit a product, just an admin can do that-->
+    
+    <main>
+        <h1>Admin</h1>
+        <p>Here you can edit and delete the products</p>
+
+        <% if(prods.length > 0) { %>
+            <% for(let product of prods){ %> 
+                <div class="container">
+                    <h1> <%= product.title %> </h1>
+                    <img src="<%= product.imageUrl%>" alt="<%= product.title%>" width="300px" height="220px">
+                    <h2 class="price"> $<%= product.price%> </h2>
+                    <p class="product_description"> <%= product.description%></p>
+                    
+                    <a href="/admin/edit-product/<%= product.id%>?edit=true">Edit</a>
+                    <form action="/admin/delete-product" method="POST">
+                        <input type="hidden" name="productId" value="<%= product.id%>">
+                        <input type="hidden" name="price" value="<%= product.price%>">
+                        
+                        <input type="submit" name="delete" value="Delete">
+                    </form>
+                </div>
+                <br>
+            <% } %>
+        <% } else {%>
+            <h1> No products found!</h1>
+        <% } %>
+        
+    </main>
+
+<%- include('../includes/end.ejs') %>

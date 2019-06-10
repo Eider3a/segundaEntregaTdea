@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> <%= docTitle %> </title>
+
+    <link rel="stylesheet" href="/css/main.css">
+
+</head>
+
+<body>
+    <nav class="main-header__nav">
+        <ul class="main-header__item-list">
+            <li class="main-header__item">
+                <a href="/">Inicio</a>
+            </li>
+            <li class="main-header__item">
+                <a href="/vercursosinteresado">listarCursosInteresado</a>
+            </li>
+            <li class="main-header__item">
+                <a href="/crearcurso">crearCursos</a>
+            </li>
+            <li class="main-header__item">
+                <a href="/vercursoscoordinador">listarCursosCoordinador</a>
+            </li>
+            <li class="main-header__item">
+                <a href="/inscribiraspirante">inscribirAspirante</a>
+            </li>
+            <li class="main-header__item">
+                <a href="/listarinscriptoscoordinador">listarInscriptos</a>
+            </li>
+        </ul>
+    </nav>
+    </header>
+
+    <main>
+
+        <h1>Esta es una lista de cursos para todos los interesados</h1>
+
+
+        {{!-- You can use the if helper to conditionally render a
+         block. If its argument returns false, undefined, null, "", 0, or [],
+        Handlebars will not render the block. --}}
+
+        {{#if cursos}}
+        {{#each cursos}}
+        <div class="container">
+            <h1> {{ this.nombre  }} </h1>
+            <h2 class=" price"> {{ this.descripcion  }} </h2>
+            <p class="product_description"> {{ this.precio }}</p>
+            <form action="/vercursosinteresado" method="POST">
+                <input type="hidden" name="cursoId" value="{{ this.id }}">
+                <input type="submit" value="Mas Detalles">
+            </form>
+        </div>
+        <br>
+        {{/each}}
+        {{else}}
+        <h1>No hay disponible ningun curso.</h1>
+        {{/if}}
+
+    </main>
+
+    <footer>
+        Made with ♥ by Eider.
+    </footer>
+</body>
+
+</html>

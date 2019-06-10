@@ -1,0 +1,22 @@
+<!-- If a click on a product I can see the product in detail -->
+<%- include('../includes/head.ejs')%>
+
+<body>
+    
+    <%- include('../includes/navigation.ejs')%>
+
+    <div class="centered">
+        <h1><%= product.title%></h1>
+        <hr>
+        <img src="<%= product.imageUrl%>" alt="<%= product.title%>" width="350px" height="200px">
+        <h3>$<%= product.price%></h3>
+        <h3><%=product.description%></h3>
+
+        <form action="/cart" method="POST">
+            <input type="submit" name="addToCart" value="Add To Cart">
+            <input type="hidden" name="productID" value="<%= product.id %>">
+        </form>
+    </div>
+
+<%- include('../includes/end.ejs')%>
+

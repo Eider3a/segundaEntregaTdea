@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> <%= docTitle %> </title>
+
+    <link rel="stylesheet" href="/css/main.css">
+
+</head>
+
+<body>
+    <nav class="main-header__nav">
+        <ul class="main-header__item-list">
+            <li class="main-header__item">
+                <a href="/">Inicio</a>
+            </li>
+            <li class="main-header__item">
+                <a href="/vercursosinteresado">cursosInteresado</a>
+            </li>
+            <li class="main-header__item">
+                <a href="/crearcurso">crearCursos</a>
+            </li>
+            <li class="main-header__item">
+                <a href="/vercursoscoordinador">cursosCoordinador</a>
+            </li>
+            <li class="main-header__item">
+                <a href="/inscribiraspirante">InscribirAspirante</a>
+            </li>
+            <li class="main-header__item">
+                <a href="/listarinscriptoscoordinador">listarInscriptos</a>
+            </li>
+        </ul>
+    </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <form classs="form-control" action="/crearcurso" method="POST">
+                ID:<input type="number" name="id" id="id" required><br>
+                Nombre:<input type="text" name="nombre" id="nombre" required><br>
+                Modalidad:<select name="modalidad">
+                    <option value="presencial" selected>Presencial</option>
+                    <option value="virtual">Virtual</option>
+                </select><br>
+                Precio:<input type="number" name="precio" id="precio" required><br>
+                Description:<textarea id="descripcion" rows="3" name="descripcion" required></textarea> <br>
+                Intensidad Horaria:<input type="number" name="horas" id="horas"><br>
+
+
+                <input type="submit" value="Crear Curso">
+            </form>
+
+        </div>
+
+
+    </main>
+
+    <footer>
+        Made with ♥ by Eider.
+    </footer>
+</body>
+
+</html>
